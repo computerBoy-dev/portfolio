@@ -303,14 +303,14 @@ Do NOT include any intro like “Here are two paragraphs…” or formatting hin
       line1.textContent = paragraphs[0];
       line2.textContent = paragraphs[1];
     } else {
-      line1.textContent = "Aaryan builds creative solutions — from AI to immersive UI — with a deep passion for technology.";
-      line2.textContent = "His journey is driven by curiosity, purpose, and a desire to turn smart ideas into powerful digital products.";
+      line1.textContent = "Aaryan is a creative force to be reckoned with, driven by an insatiable curiosity to craft innovative solutions that bridge the gap between technology and humanity. With a mindset that's equal parts artist and engineer, he seamlessly navigates the realms of game development, web design, AI, mobile apps, and IoT devices, always seeking to push the boundaries of what's possible. His passion for problem-solving is contagious, and his infectious enthusiasm inspires others to join him on his quest for creative excellence.";
+      line2.textContent = "From conceptualization to delivery, Aaryan's work is a testament to his meticulous attention to detail, adaptability, and passion for staying at the forefront of emerging technologies. He's a masterful storyteller who weaves together code, design, and user experience to craft unforgettable experiences that leave a lasting impact. Whether he's building immersive games that transport players to new worlds or developing AI systems that revolutionize industries, Aaryan's work is a reflection of his dedication to making a meaningful difference in the world – one innovative solution at a time.";
     }
   } catch (err) {
     console.error("Failed to fetch about text", err);
-    line1.textContent = "Aaryan builds creative solutions — from AI to immersive UI — with a deep passion for technology.";
-    line2.textContent = "His journey is driven by curiosity, purpose, and a desire to turn smart ideas into powerful digital products.";
-  }
+      line1.textContent = "Aaryan is a creative force to be reckoned with, driven by an insatiable curiosity to craft innovative solutions that bridge the gap between technology and humanity. With a mindset that's equal parts artist and engineer, he seamlessly navigates the realms of game development, web design, AI, mobile apps, and IoT devices, always seeking to push the boundaries of what's possible. His passion for problem-solving is contagious, and his infectious enthusiasm inspires others to join him on his quest for creative excellence.";
+      line2.textContent = "From conceptualization to delivery, Aaryan's work is a testament to his meticulous attention to detail, adaptability, and passion for staying at the forefront of emerging technologies. He's a masterful storyteller who weaves together code, design, and user experience to craft unforgettable experiences that leave a lasting impact. Whether he's building immersive games that transport players to new worlds or developing AI systems that revolutionize industries, Aaryan's work is a reflection of his dedication to making a meaningful difference in the world – one innovative solution at a time.";
+    }
 
   [line1, line2].forEach(el => el.classList.remove("skeleton"));
 }
