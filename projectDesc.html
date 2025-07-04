@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Aaryan</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+      <!-- ===== Cursor Aura (hidden on mobile) ===== -->
+  <div class="cursor-aura"></div>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="logo"><span id="logo-text">aaryan</span></div>
+    <button class="contact-btn" onclick="location.href='index.html#contact'">Contact</button>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <h1 style="text-transform: none;">My Featured Projects</h1>
+    <p class="tagline">Scroll through detailed breakdowns of my best work</p>
+  </section>
+
+<!-- ========== PROJECT 1: CodeGap IDE ========== -->
+<section class="about-me" id="codegap">
+  <div class="about-container" style="max-width: 1000px; margin: 0 auto;">
+    
+    <!-- Header -->
+    <div class="about-left">
+      <button class="about-tag">Project 01</button>
+      <h2 style="margin-bottom: 1rem;">CodeGap Web IDE</h2>
+    </div>
+
+    <!-- Description -->
+    <div class="about-right">
+      <p>
+        CodeGap Web IDE is a powerful, browser-based development environment designed to replicate the experience of Visual Studio Code right inside your web browser. Built using the Monaco Editor (the same editor that powers VS Code), it allows users to create, edit, and manage multiple files and folders with intuitive nesting support.
+      </p>
+      <p>
+        The editor includes a responsive sidebar file explorer, tab-based editing interface, and a fully integrated live preview that renders HTML output in real time — with proper CSS and JavaScript linkage support. Advanced features include Firestore syncing, keyboard shortcuts (like Ctrl+S), and full ZIP project export using JSZip. A dedicated 'Run' window simulates responsive testing for mobile and desktop views.
+      </p>
+
+      <!-- Buttons -->
+      <div class="cta-buttons" style="margin-top: 2rem;">
+        <a href="https://computerboy-dev.github.io/codeGap/" target="_blank">
+          <button class="explore-btn">Live Demo</button>
+        </a>
+        <a href="https://github.com/computerBoy-dev/codeGap" target="_blank">
+          <button class="contact-btn">View Source</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Screenshot with Click to Open -->
+    <div style="margin-top: 3rem; text-align: center;">
+      <a href="images/project1.png" target="_blank">
+        <img src="images/project1.png" alt="CodeGap Screenshot"
+             style="max-width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); cursor: zoom-in; transition: transform 0.3s ease;" />
+      </a>
+      <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">Click image to view fullscreen</p>
+    </div>
+  </div>
+</section>
+  <section class="cta-buttons" style="margin: 5rem 0;">
+    <button class="contact-btn" onclick="location.href='index.html#projects'">← Back to Portfolio</button>
+  </section>
+
+    <!-- ===== JS Logic ===== -->
+  <script src="script.js"></script>
+
+</body>
+</html>

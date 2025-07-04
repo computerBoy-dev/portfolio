@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aaryan | Portfolio</title>
+
+  <!-- ========== Stylesheets ========== -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
+  <!-- ========== Favicon (Optional) ========== -->
+  <!-- <link rel="icon" href="favicon.ico" /> -->
+</head>
+<body>
+
+  <!-- ===== Cursor Aura (hidden on mobile) ===== -->
+  <div class="cursor-aura"></div>
+
+  <!-- ===== Floating Chatbot Icon ===== -->
+  <div class="chatbot-icon" id="chatbotIcon" onclick="openChatbot()">
+    <i class='bx bx-bot'></i>
+  </div>
+
+  <!-- ===== Chatbot Overlay Blur Background ===== -->
+  <div class="chatbot-overlay" id="chatbotOverlay" onclick="closeChatbot()"></div>
+
+  <!-- ===== Chatbot Modal ===== -->
+  <div class="chatbot-modal" id="chatbotModal">
+    <div class="chatbot-header">
+      <span>Vironica AI</span>
+      <button onclick="closeChatbot()" class="chatbot-modal-close">×</button>
+    </div>
+    <div class="chatbot-body" id="chatBody">
+      <div class="typing-indicator" id="typingIndicator">⋯</div>
+    </div>
+    <div class="chatbot-input-area">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off"/>
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <!-- ===== Site Header ===== -->
+  <header>
+    <div class="logo hover-hide-cursor" onmouseenter="animateLogo(true)" onmouseleave="animateLogo(false)">
+      <span id="logo-text">aaryan</span>
+    </div>
+   <a href="#contact"> <button class="contact-btn">Contact</button></a>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <h1 id="hero-heading" class="skeleton"></h1>
+    <p class="tagline skeleton" id="hero-tagline"></p>
+    <div class="cta-buttons">
+      <a href="#about-me"><button class="explore-btn">Explore More</button></a>
+      <button class="contact-btn">Download Resume</button>
+    </div>
+  </section>
+
+  <!-- ===== Social Media Section ===== -->
+  <section class="trusted-partners">
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/computerboy/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+      <a href="https://github.com/computerBoy-dev" target="_blank"><i class='bx bxl-github'></i></a>
+      <a href="https://instagram.com" target="_blank"><i class='bx bxl-instagram'></i></a>
+      <a href="mailto:iaaryan37@gmail.com"><i class='bx bx-envelope'></i></a>
+    </div>
+  </section>
+
+  <!-- ===== About Me Section ===== -->
+  <section class="about-me" id="about-me">
+    <div class="about-container">
+      <div class="about-left">
+        <button class="about-tag">About Me</button>
+        <h2>Engineering Ideas Into Experiences</h2>
+      </div>
+      <div class="about-right">
+        <p id="about-line-1" class="skeleton"></p>
+        <p id="about-line-2" class="skeleton"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills Section (Grid Style) ===== -->
+  <section class="skills-section">
+    <button class="skill-tag">My Skills</button>
+    <h2 class="projects-title-skill">What I build and master</h2>
+
+    <div class="skills-grid">
+      <!-- Skill 1 -->
+      <div class="skill-card-grid">
+        <span class="skill-number">01</span>
+        <p class="skill-desc">HTML, CSS, JS with backend integration using Firebase and Flask.</p>
+        <h3 class="skill-title">Web Development</h3>
+      </div>
+
+      <!-- Skill 2 -->
+      <div class="skill-card-grid">
+        <span class="skill-number">02</span>
+        <p class="skill-desc">Beautiful apps using Flutter and Dart for Android.</p>
+        <h3 class="skill-title">App Development</h3>
+      </div>
+
+      <!-- Skill 3 -->
+      <div class="skill-card-grid">
+        <span class="skill-number">03</span>
+        <p class="skill-desc">3D game prototyping using Unity, C# scripting and Blender art.</p>
+        <h3 class="skill-title">Game Development</h3>
+      </div>
+
+      <!-- Skill 4 -->
+      <div class="skill-card-grid">
+        <span class="skill-number">04</span>
+        <p class="skill-desc">Developing intelligent AI systems using Python & ML libraries.</p>
+        <h3 class="skill-title">AI / Machine Learning</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects Section ===== -->
+  <section class="projects-section">
+    <button class="about-tag" style="color: #fff;">Featured   Projects</button>
+    <h2 class="projects-title">Creative ideas turned into real tech</h2>
+
+    <div class="projects-grid">
+      <a href="projectDesc.html#codegap" target="_blank" class="project-card">
+        <span class="project-number">01</span>
+        <p class="project-desc">Created a full-fledged browser-based IDE using Monaco Editor with real-time file management, live preview, and Firebase sync.</p>
+        <h3 class="project-title">CodeGap Web IDE</h3>
+      </a>
+    </div>
+
+
+    <div class="explore-more">
+      <a href="#" target="_blank" class="explore-btn">Explore More Projects →</a>
+    </div>
+  </section>
+
+  <!-- ===== Contact Section (with Telegram Integration) ===== -->
+  <section class="contact-section" id="contact">
+    <button class="about-tag">Get In Touch</button>
+    <h2 class="contact-heading">Let’s build something together</h2>
+
+    <form class="contact-form" id="telegramForm">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="off"/>
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Your Mobile Number" required autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <!-- Thank You Message (hidden until submission) -->
+    <div class="thank-you-msg" id="thankYou" style="display: none;">
+      <h3>Thank you! ❤</h3>
+      <p>I’ll connect with you soon.</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer / Final Contact Area ===== -->
+  <section class="final-contact">
+    <div class="final-left">
+      <h4>Let’s collaborate!</h4>
+      <p>Reach out for ideas, projects or queries.</p>
+      <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/computerboy/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/computerBoy-dev" target="_blank"><i class='bx bxl-github'></i></a>
+        <a href="https://instagram.com" target="_blank"><i class='bx bxl-instagram'></i></a>
+      </div>
+      <p class="copyright">© Aaryan • All rights reserved</p>
+    </div>
+
+    <div class="footer-meta">
+      <span>Last updated: <strong>June 20, 2025</strong></span><br />
+      <span>Total visits till date: <strong>1,289</strong></span>
+    </div>
+
+    <div class="final-right">
+      <h2><span>Let's</span><br />build something <span>amazing</span></h2>
+    </div>
+  </section>
+
+  <!-- ===== JS Logic ===== -->
+  <script src="script.js"></script>
+
+</body>
+</html>
