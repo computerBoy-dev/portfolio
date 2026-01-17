@@ -25,7 +25,7 @@ This is not just a static website; it is **AARYAN_OS**.
 Designed with an **"Industrial Minimalist"** philosophy, this portfolio mimics a high-performance terminal interface. It bridges the gap between abstract code and visual design, featuring a **real-time AI Agent** that answers questions about my projects, skills, and architecture.
 
 ### 🌟 Live Demo
-[LINK_TO_YOUR_WEBSITE_HERE]
+https://meaaryan.netlify.app/
 
 ---
 
@@ -53,30 +53,6 @@ Designed with an **"Industrial Minimalist"** philosophy, this portfolio mimics a
 * **Scripting:** Vanilla JavaScript (ES6+)
 * **AI Backend:** Groq Cloud API (Llama 3-8b-8192)
 * **Icons:** Lucide Icons
-
----
-
-### **Section 6: Customization Guide**
-```markdown
-## 📂 Customization Guide
-
-### Changing Projects
-Locate the `<section id="projects">` in `index.html`. Each project is a `div` with the class `group`. You can copy-paste the block to add more projects.
-
-### Modifying AI Knowledge
-To teach the AI about *your* specific skills, edit the `SYSTEM_PROMPT` variable in the script section:
-
-```javascript
-const SYSTEM_PROMPT = `
-You are [YOUR_NAME]_OS.
-KNOWLEDGE BASE:
-- PROJECT 1: [Your Project Name] - [Description]
-- SKILLS: [Your Skills]
-...
-`;
-```
-
----
 
 ## 📄 License
 
