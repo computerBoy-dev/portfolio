@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aaryan | System Architect</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        'bg-black': '#050505',
+                        'border-dim': 'rgba(255, 255, 255, 0.08)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                    },
+                    keyframes: {
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        }
+                    },
+                    screens: {
+                        'xs': '375px', // Extra small devices
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #e5e5e5;
+            overflow-x: hidden; /* Critical for responsiveness */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+        }
+
+        /* Scanline Overlay */
+        .scanline-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.2) 50%);
+            background-size: 100% 4px;
+            pointer-events: none; z-index: 50; opacity: 0.2;
+        }
+
+        /* Responsive Text Sizing Utility */
+        .fluid-text {
+            font-size: clamp(2.5rem, 8vw, 6rem); /* Min 2.5rem, Max 6rem */
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .menu-open { transform: translateY(0%); }
+        .menu-closed { transform: translateY(-100%); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+    </style>
+</head>
+<body class="antialiased selection:bg-white selection:text-black">
+
+    <div class="grid-bg"></div>
+    <div class="scanline-overlay"></div>
+
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3 z-50">
+                <div class="w-2 h-2 bg-green-500 animate-pulse"></div>
+                <a href="#" class="font-mono text-sm font-bold tracking-widest text-white uppercase">Aaryan</a>
+            </div>
+            
+            <div class="hidden md:flex gap-10 text-[10px] font-mono font-medium tracking-widest text-gray-500">
+                <a href="#projects" class="hover:text-white transition flex items-center gap-1"><span class="text-blue-500">01.</span> WORK</a>
+                <a href="#about" class="hover:text-white transition flex items-center gap-1"><span class="text-blue-500">02.</span> ARSENAL</a>
+                <a href="mailto:aaryan.25btcse0230@dbuumail.in" class="hover:text-white transition flex items-center gap-1"><span class="text-blue-500">03.</span> CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen flex flex-col justify-center px-4 sm:px-6 pt-20 max-w-7xl mx-auto relative overflow-hidden">
+        
+        <div class="w-full lg:w-64 border border-white/10 bg-black/50 p-4 backdrop-blur-sm mb-8 lg:mb-0 lg:absolute lg:top-32 lg:right-6 order-last lg:order-first">
+            <div class="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                <span class="font-mono text-[10px] text-gray-500">SYSTEM_CHK</span>
+                <span class="font-mono text-[10px] text-green-500">● ONLINE</span>
+            </div>
+            <div class="space-y-2 font-mono text-[10px] text-gray-400">
+                <div class="flex justify-between"><span>LOC:</span> <span class="text-white">DEHRADUN, IN</span></div>
+                <div class="flex justify-between"><span>ROLE:</span> <span class="text-white">ARCHITECT</span></div>
+                <div class="flex justify-between"><span>STACK:</span> <span class="text-white">FULL_CYCLE</span></div>
+            </div>
+        </div>
+
+        <div class="border-l-2 border-white/20 pl-4 sm:pl-8 mb-8 mt-4">
+            <div class="font-mono text-[10px] sm:text-xs text-blue-500 mb-2 sm:mb-4 tracking-widest">/// PORTFOLIO_V1.0</div>
+            
+            <h1 class="font-display font-bold leading-[0.9] tracking-tighter text-white fluid-text">
+                ENGINEERING <br> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800">REALITY.</span>
+            </h1>
+        </div>
+
+        <p class="font-mono text-xs sm:text-sm text-gray-400 max-w-xl leading-relaxed mb-10 pl-4 sm:pl-8 pr-4">
+            Bridging abstract logic with tangible software. <br class="hidden sm:block">
+            <span class="text-white">Specializing in Virtual Filesystems, AI Agents, and 3D Environments.</span>
+        </p>
+
+        <div class="flex flex-col xs:flex-row gap-4 pl-4 sm:pl-8 mb-10 lg:mb-0">
+            <a href="#projects" class="text-center sharp-card px-8 py-4 text-xs font-mono font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition duration-300">
+                View Work
+            </a>
+            <a href="https://github.com/computerBoy-dev" target="_blank" class="text-center px-8 py-4 border border-white/20 text-xs font-mono font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:border-white transition flex items-center justify-center gap-2">
+                GitHub <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </main>
+
+    <div class="border-y border-white/10 bg-black py-4 overflow-hidden relative z-10 w-full">
+        <div class="flex gap-8 sm:gap-16 animate-pulse-slow whitespace-nowrap opacity-60 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-gray-600">
+            <span class="text-white">::</span> <span>Python</span> <span class="text-white">::</span> <span>C++</span> <span class="text-white">::</span> <span>C#</span> 
+            <span class="text-white">::</span> <span>Unity</span> <span class="text-white">::</span> <span>Blender</span> <span class="text-white">::</span> <span>Firebase</span> 
+            <span class="text-white">::</span> <span>Groq</span> <span class="text-white">::</span> <span>Face_API</span> <span class="text-white">::</span> <span>System_Design</span>
+            <span class="text-white">::</span> <span>Python</span> <span class="text-white">::</span> <span>C++</span> <span class="text-white">::</span> <span>C#</span> 
+        </div>
+    </div>
+
+    <section id="projects" class="max-w-7xl mx-auto px-0 sm:px-6 py-20 sm:py-32 border-l-0 sm:border-l sm:border-r border-white/5 bg-black/20">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 px-6 sm:px-6">
+            <div class="mb-4 sm:mb-0">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-2">SELECTED WORKS</h2>
+                <div class="h-1 w-12 bg-blue-500"></div>
+            </div>
+            <span class="font-mono text-[10px] text-gray-600">INDEX: 01 // DEPLOYMENTS</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-white/10">
+
+            <div class="group border-b md:border-r border-white/10 p-6 sm:p-14 hover:bg-white/[0.02] hover:border-blue-500/50 transition duration-300 relative">
+                <div class="flex justify-between items-start mb-6 sm:mb-10">
+                    <span class="font-mono text-[10px] text-blue-400 border border-blue-900/50 bg-blue-900/10 px-2 py-1 tracking-widest">CLOUD_IDE</span>
+                    <a href="https://github.com/computerBoy-dev/codeGap" class="text-gray-500 hover:text-white"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>
+                </div>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4 text-gray-200 group-hover:text-white">CodeGap</h3>
+                <p class="font-mono text-xs text-gray-500 leading-relaxed mb-6 max-w-sm">
+                    Browser-based IDE with in-memory Virtual File System. Zero-setup coding via Monaco Engine.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">VirtualFS</span>
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">Monaco</span>
+                </div>
+            </div>
+
+            <div class="group border-b border-white/10 p-6 sm:p-14 hover:bg-white/[0.02] hover:border-green-500/50 transition duration-300 relative">
+                <div class="flex justify-between items-start mb-6 sm:mb-10">
+                    <span class="font-mono text-[10px] text-green-400 border border-green-900/50 bg-green-900/10 px-2 py-1 tracking-widest">SECURITY</span>
+                    <a href="https://github.com/computerBoy-dev/pratykasha" class="text-gray-500 hover:text-white"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>
+                </div>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4 text-gray-200 group-hover:text-white">Pratyaksha</h3>
+                <p class="font-mono text-xs text-gray-500 leading-relaxed mb-6 max-w-sm">
+                    3-Factor Authentication system (Face-API + GPS + Time) for remote workforce tracking.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">Biometrics</span>
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">GeoFence</span>
+                </div>
+            </div>
+
+            <div class="group border-b md:border-r border-white/10 p-6 sm:p-14 hover:bg-white/[0.02] hover:border-purple-500/50 transition duration-300 relative">
+                <div class="flex justify-between items-start mb-6 sm:mb-10">
+                    <span class="font-mono text-[10px] text-purple-400 border border-purple-900/50 bg-purple-900/10 px-2 py-1 tracking-widest">DESKTOP_APP</span>
+                    <a href="https://github.com/computerBoy-dev/NoteNowAI" class="text-gray-500 hover:text-white"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>
+                </div>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4 text-gray-200 group-hover:text-white">NoteNow AI</h3>
+                <p class="font-mono text-xs text-gray-500 leading-relaxed mb-6 max-w-sm">
+                    Context-aware developer notebook. Embedded Groq AI reads notes in real-time.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">Tkinter</span>
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">Groq</span>
+                </div>
+            </div>
+
+            <div class="group border-b border-white/10 p-6 sm:p-14 hover:bg-white/[0.02] hover:border-orange-500/50 transition duration-300 relative">
+                <div class="flex justify-between items-start mb-6 sm:mb-10">
+                    <span class="font-mono text-[10px] text-orange-400 border border-orange-900/50 bg-orange-900/10 px-2 py-1 tracking-widest">GEN_AI</span>
+                    <a href="https://github.com/computerBoy-dev/promptify" class="text-gray-500 hover:text-white"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>
+                </div>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4 text-gray-200 group-hover:text-white">Promptify</h3>
+                <p class="font-mono text-xs text-gray-500 leading-relaxed mb-6 max-w-sm">
+                    Meta-prompting engine powered by Llama 3.3. Transforms vague inputs into expert prompts.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">Llama 3</span>
+                    <span class="text-[10px] font-mono border border-white/10 px-2 py-1 text-gray-500">PromptEng</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="ai-terminal" class="max-w-7xl mx-auto px-4 sm:px-6 py-20 border-l border-r border-white/5 bg-black/20">
+        <div class="sharp-card p-1 sm:p-2 border-t border-white/10 relative overflow-hidden group">
+            
+            <div class="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(rgba(18,255,0,0.1)_1px,transparent_1px)] bg-[size:100%_4px]"></div>
+
+            <div class="bg-black/80 p-6 md:p-10 relative z-10">
+                
+                <div class="flex justify-between items-end mb-8 border-b border-white/10 pb-4">
+                    <div>
+                        <h2 class="font-display text-3xl font-bold text-white mb-1">AARYAN_OS <span class="text-green-500 animate-pulse">●</span></h2>
+                        <p class="font-mono text-xs text-gray-500">INTERACTIVE_PORTFOLIO_AGENT // LLAMA-3-GROQ</p>
+                    </div>
+                    <div class="hidden sm:block text-right">
+                        <p class="font-mono text-[10px] text-gray-600">UPTIME: 99.9%</p>
+                        <p class="font-mono text-[10px] text-gray-600">LATENCY: < 20ms</p>
+                    </div>
+                </div>
+
+                <div id="chat-window" class="h-80 md:h-96 overflow-y-auto mb-6 font-mono text-sm space-y-4 pr-2 custom-scrollbar">
+                    <div class="flex gap-4">
+                        <span class="text-green-500 shrink-0">>>></span>
+                        <div class="text-gray-300">
+                            <span class="text-white font-bold">SYSTEM:</span> Initializing Aaryan_Portfolio_Agent...<br>
+                            Accessing Knowledge Base: [CodeGap, Pratyaksha, NoteNowAI, Promptify]...<br>
+                            <span class="text-green-400">Ready.</span> Ask me anything about Aaryan's projects or skills.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center bg-white/5 border border-white/10 px-4 py-3">
+                    <span class="text-green-500 mr-3 font-mono">user@guest:~$</span>
+                    <input type="text" id="user-input" 
+                        class="w-full bg-transparent border-none outline-none text-white font-mono text-sm placeholder-gray-700"
+                        placeholder="Type query here (e.g., 'How does Pratyaksha work?')..." autocomplete="off">
+                    <button id="send-btn" class="text-gray-400 hover:text-white transition">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #22c55e; } /* Green thumb */
+        .custom-scrollbar::-webkit-scrollbar-track { background: #000; }
+    </style>
+
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20 sm:pb-32 border-l-0 sm:border-l sm:border-r border-white/5 bg-black/20">
+        <div class="sharp-card p-6 sm:p-16 border-t border-white/10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20">
+                
+                <div>
+                    <div class="flex items-end justify-between mb-8">
+                        <div>
+                            <h2 class="font-display text-3xl font-bold text-white mb-2">ABOUT</h2>
+                            <div class="h-1 w-12 bg-white"></div>
+                        </div>
+                        <span class="font-mono text-xs text-gray-600">INDEX: 02</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-400 leading-loose mb-6">
+                        I am a Computer Science undergraduate at <span class="text-white border-b border-white/30">Dev Bhoomi Uttrakhand University</span>, obsessed with the architecture of digital systems.
+                    </p>
+                    <p class="font-mono text-sm text-gray-400 leading-loose">
+                        My philosophy is simple: <span class="text-blue-400">Code is structural.</span> Whether building a virtual filesystem in JavaScript or designing 3D assets in Blender, I prioritize performance, logic, and scalability.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-end justify-between mb-8">
+                        <div>
+                            <h2 class="font-display text-3xl font-bold text-white mb-2">ARSENAL</h2>
+                            <div class="h-1 w-12 bg-gray-600"></div>
+                        </div>
+                        <span class="font-mono text-xs text-gray-600">/// TOOLS</span>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <p class="font-mono text-[10px] text-gray-600 uppercase tracking-widest mb-3 border-b border-white/5 pb-2">Core Languages</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white/5 border border-white/10 px-4 py-2 text-xs font-mono font-bold text-gray-300 hover:bg-white hover:text-black transition">Python</span>
+                                <span class="bg-white/5 border border-white/10 px-4 py-2 text-xs font-mono font-bold text-gray-300 hover:bg-white hover:text-black transition">C++</span>
+                                <span class="bg-white/5 border border-white/10 px-4 py-2 text-xs font-mono font-bold text-gray-300 hover:bg-white hover:text-black transition">C#</span>
+                                <span class="bg-white/5 border border-white/10 px-4 py-2 text-xs font-mono font-bold text-gray-300 hover:bg-white hover:text-black transition">JS/TS</span>
+                                <span class="bg-white/5 border border-white/10 px-4 py-2 text-xs font-mono font-bold text-gray-300 hover:bg-white hover:text-black transition">Node.js</span>
+                                <span class="bg-white/5 border border-white/10 px-4 py-2 text-xs font-mono font-bold text-gray-300 hover:bg-white hover:text-black transition">Dart</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="font-mono text-[10px] text-gray-600 uppercase tracking-widest mb-3 border-b border-white/5 pb-2">Engines & Tech</p>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 hover:border-green-500 transition">
+                                    <span class="font-mono text-xs text-gray-300">Unity</span>
+                                    <span class="w-1.5 h-1.5 bg-green-500"></span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 hover:border-orange-500 transition">
+                                    <span class="font-mono text-xs text-gray-300">Blender</span>
+                                    <span class="w-1.5 h-1.5 bg-orange-500"></span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 hover:border-yellow-500 transition">
+                                    <span class="font-mono text-xs text-gray-300">Firebase</span>
+                                    <span class="w-1.5 h-1.5 bg-yellow-500"></span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 hover:border-blue-500 transition">
+                                    <span class="font-mono text-xs text-gray-300">Tailwind CSS</span>
+                                    <span class="w-1.5 h-1.5 bg-blue-500"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-black py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-end gap-6 text-center md:text-left">
+            <div>
+                <h4 class="font-mono font-bold text-lg text-white uppercase tracking-widest mb-2">Aaryan</h4>
+                <p class="text-gray-600 text-xs font-mono">ENGINEERING REALITY // 2026</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-8 font-mono text-xs tracking-widest">
+                <a href="https://github.com/computerBoy-dev" class="text-gray-500 hover:text-white transition">GITHUB</a>
+                <a href="https://www.linkedin.com/in/computerboy/" class="text-gray-500 hover:text-white transition">LINKEDIN</a>
+                <a href="mailto:aaryan.25btcse0230@dbuumail.in" class="text-gray-500 hover:text-white transition">MAIL</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script>
+        // --- AI CHAT LOGIC ---
+        
+        // 1. CONFIGURATION
+        const GROQ_API_KEY = "";
+        const SYSTEM_PROMPT = `
+You are AARYAN_OS, a technical portfolio assistant.
+        
+        CORE DIRECTIVE:
+        Provide DIRECT, FACTUAL, and TECHNICAL answers about Aaryan's work. 
+        DO NOT use filler phrases like "Deploying answer", "Fetching logic", or "Processing".
+        
+        KNOWLEDGE BASE:
+        - WHO: Aaryan, CS Undergrad @ DBUU. Focus: System Architecture, Virtual Filesystems, AI Agents.
+        - PROJECT 1: CodeGap. A Cloud IDE with an In-Memory Virtual File System (VFS). Features: Monaco Editor, Firebase Sync, simulated terminal.
+        - PROJECT 2: Pratyaksha. Biometric Attendance System. Features: 3-Factor Auth (Face-API + GPS Geofencing + Timestamp). Prevents proxy attendance.
+        - PROJECT 3: NoteNow AI. Desktop Notepad App (Python/Tkinter). Features: Context-aware AI (Groq), Real-time note analysis, Embedded VLC Music Player.
+        - PROJECT 4: Promptify. Meta-Prompting Tool. Features: Uses Llama 3 to convert vague inputs into expert LLM prompts. Tech: Tailwind, Groq Cloud.
+
+        RESPONSE STYLE:
+        - Keep it short and crisp (max 2-3 sentences).
+        - Use technical terminology (e.g., "Latency", "Architecture", "Stack").
+        - Format: Use bullet points [-] for lists.
+
+        Example Interaction:
+        User: "What is Pratyaksha?"
+        AARYAN_OS: "Pratyaksha is a workforce management system utilizing 3-Factor Authentication. It combines Face Recognition, GPS Geofencing, and Server-side Timestamping to eliminate proxy attendance."
+        `;
+
+        const chatWindow = document.getElementById('chat-window');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        let chatHistory = [
+            { role: "system", content: SYSTEM_PROMPT }
+        ];
+
+        // 2. HELPER FUNCTIONS
+        function appendMessage(sender, text, isError = false) {
+            const div = document.createElement('div');
+            div.className = "flex gap-4 animate-fade-in";
+            
+            const colorClass = sender === "AARYAN_OS" ? "text-green-400" : "text-blue-400";
+            const promptSymbol = sender === "AARYAN_OS" ? ">>>" : "user@guest:~$";
+            
+            div.innerHTML = `
+                <span class="${colorClass} shrink-0 font-bold font-mono text-xs pt-1">${promptSymbol}</span>
+                <div class="${isError ? 'text-red-400' : 'text-gray-300'} leading-relaxed">
+                    <span class="text-white font-bold text-xs uppercase tracking-wider">${sender}:</span> ${text}
+                </div>
+            `;
+            chatWindow.appendChild(div);
+            chatWindow.scrollTop = chatWindow.scrollHeight; // Auto scroll
+        }
+
+        async function fetchAIResponse(userMessage) {
+            // UI: Show loading state
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = "loading-indicator";
+            loadingDiv.className = "flex gap-4 animate-pulse";
+            loadingDiv.innerHTML = `<span class="text-green-500">>>></span><span class="text-gray-500">Processing query...</span>`;
+            chatWindow.appendChild(loadingDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            try {
+                // Add user message to history
+                chatHistory.push({ role: "user", content: userMessage });
+
+                const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${GROQ_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        model: "llama-3.3-70b-versatile", // Fast & Efficient
+                        messages: chatHistory,
+                        temperature: 0.6,
+                        max_tokens: 250
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Remove loading
+                document.getElementById('loading-indicator').remove();
+
+                if (data.choices && data.choices[0]) {
+                    const aiText = data.choices[0].message.content;
+                    appendMessage("AARYAN_OS", aiText);
+                    chatHistory.push({ role: "assistant", content: aiText });
+                } else {
+                    throw new Error("Invalid API Response");
+                }
+
+            } catch (error) {
+                document.getElementById('loading-indicator')?.remove();
+                console.error(error);
+                appendMessage("SYSTEM", "CONNECTION_ERROR: Check API Key or Network.", true);
+            }
+        }
+
+        // 3. EVENT LISTENERS
+        function handleSend() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            
+            appendMessage("USER", text);
+            userInput.value = "";
+            fetchAIResponse(text);
+        }
+
+        sendBtn.addEventListener('click', handleSend);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+
+    </script>
+</body>
+</html>
